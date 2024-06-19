@@ -1,0 +1,27 @@
+{
+  "type": "module",
+  "license": "Apache-2.0",
+  "name": "slack-verifier",
+  "version": "0.0.1",
+  "description": "Verify whether requests from Slack are authentic with a signed secrets using Web APIs",
+  "main": "lib/verifier.js",
+  "types": "lib/verifier.d.ts",
+  "scripts": {
+    "dev": "pnpm run build --watch",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.5.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "eslint": "^9.5.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-sonarjs": "^1.0.3",
+    "eslint-plugin-strict-dependencies": "^1.3.7",
+    "eslint-plugin-unused-imports": "^4.0.0",
+    "prettier": "^3.3.2",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.13.0"
+  }
+}
