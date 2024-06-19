@@ -18,26 +18,16 @@ export default (signatureSecret: string) => async (request: Request) => {
   }
 
   const enc = new TextEncoder();
-  const dec = new TextDecoder();
-
-  const reader = req.body.tee()[0].getReader();
-  let body = "";
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) {
-      break;
-    }
-    body += dec.decode(value);
-  }
-  console.log(body);
-
-  const key = await crypto.subtle.importKey(
-    "raw",
-    enc.encode(signatureSecret),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["sign"]
-  );
+  const [body, key] = await Promise.all([
+    req.text(),
+    crypto.subtle.importKey(
+      "raw",
+      enc.encode(signatureSecret),
+      { name: "HMAC", hash: "SHA-256" },
+      false,
+      ["sign"]
+    ),
+  ]);
   const basestring = [VERSION, xSlackRequestTimestamp, body].join(":");
   const signedSignature = [
     ...new Uint8Array(
