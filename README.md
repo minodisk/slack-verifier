@@ -1,2 +1,2 @@
 # slack-verify-request
-Verify whether requests from Slack are authentic with a signed secrets
+Verify whether requests from Slack are authentic with a signed secrets using Web APIs
