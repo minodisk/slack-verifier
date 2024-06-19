@@ -2,7 +2,7 @@
   "type": "module",
   "license": "Apache-2.0",
   "name": "slack-verifier",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Verify whether requests from Slack are authentic with a signed secrets using Web APIs",
   "main": "lib/verifier.js",
   "types": "lib/verifier.d.ts",
