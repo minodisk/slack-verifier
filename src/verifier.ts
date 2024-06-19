@@ -4,7 +4,9 @@ export const signatureMismatchError = new Error("signature mismatch");
 
 const VERSION = "v0";
 
-export default (signatureSecret: string) => async (req: Request) => {
+export default (signatureSecret: string) => async (request: Request) => {
+  const req = request.clone();
+
   const xSlackRequestTimestamp = req.headers.get("x-slack-request-timestamp");
   const timestamp = Number(xSlackRequestTimestamp);
   if (isNaN(timestamp)) {
